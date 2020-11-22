@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Crear nuevo Workshop</title>
+</head>
+<body>
+Registro Workshop:
+<form action="#" th:action="@{/registroWorkshop}" th:object="${workshop}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    <br/>
+    <label for="autor">Elija un autor:</label>
+	<select id="autor" name="autor" th:field="*{autor}">
+  		<option value="Juan Pereira">Juan Pereira</option>
+ 		<option value="María Madrigal">María Madrigal</option>
+  		<option value="Carlos Vargas">Carlos Vargas</option>
+  		<option value="Juan José Artavia">Juan José Artavia</option>
+	</select>  
+	  <br/>
+	  <label for="objetivo">Objetivo</label>
+    <input type="text" th:field="*{objetivo}" id="objetivo">
+       <br/>
+	  <label for="categoria">Categoría</label>
+   		<select  id="categoria" name="categoria" th:field="*{categoria}">
+  		<option th:each="entry : ${categorias}" th:value="${entry.id}"  th:utext="${entry.nombre}" />
+		</select>  
+       <br/>
+       <label for="palabraClave">Palabras Clave</label>
+    <input type="text" th:field="*{palabraClave}" id="palabraClave">
+       <br/>
+	     <input type="submit" value="Crear Workshop">   
+</form>
+
+</body>
+</html>

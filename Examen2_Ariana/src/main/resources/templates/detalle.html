@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+ 
+	Nombre:<span th:text="${workshopData.nombre}">Titulo</span><br/>
+	Autor:<span th:text="${workshopData.autor}">Titulo</span><br/>
+    Actividades:
+    <div th:each="entry : ${workshopData.actividades}">
+    	<ul>
+    	<li>Nombre Actividad:<span th:text="${entry.nombre}">Nombre</span> 
+
+    	<li>Tiempo Actividad:<span th:text="${entry.tiempo}">Tiempo</span> 
+    	
+    	</ul>
+    	
+    	<ul>
+    Tiempo de Duración:<li><span th:text="${tiempoSumatoria}">Tiempo sumatoria</span>
+    </ul> 
+    </div>
+  
+    <a th:href="@{/agregarActividad/{id}(id=${workshopData.id})}">Agregar actividad</a>
+    <a href="/">Volver al index</a>
+</body>
+</html>

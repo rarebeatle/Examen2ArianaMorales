@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>El word ha sido generado</h1>
+
+	Nombre:<span th:text="${workshopData.nombre}">Titulo</span><br/>
+	Autor:<span th:text="${workshopData.autor}">Titulo</span><br/>
+    Actividades:
+    <div th:each="entry : ${workshopData.actividades}">
+    	<ul>
+    	<li>Nombre Actividad:<span th:text="${entry.nombre}">Nombre</span> 
+    	</ul>
+    </div>
+   
+       <a href="/">Volver al index</a>
+</body>
+</html>

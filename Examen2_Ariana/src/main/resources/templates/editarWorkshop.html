@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+</head>
+<body>
+Editar Workshop: #<span th:text="${workshopToEdit.id}">Id</span>
+<form action="#" th:action="@{/editarWorkshop/{id}(id=${workshopToEdit.id})}" th:object="${workshopToEdit}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+     <label for="autor">Elija un autor:</label>
+	<select id="autor" name="autor" th:field="*{autor}">
+  		<option value="Juan Pereira">Juan Pereira</option>
+ 		<option value="María Madrigal">María Madrigal</option>
+  		<option value="Carlos Vargas">Carlos Vargas</option>
+  		<option value="Juan José Artavia">Juan José Artavia</option>
+	</select>  
+     <label for="objetivo">Objetivo</label>
+    <input type="text" th:field="*{objetivo}" id="objetivo">
+   <label for="categoria">Categoría</label>
+   		<select  id="categoria" name="categoria" th:field="*{categoria}">
+  		<option th:each="entry : ${categorias}" th:value="${entry.id}"  th:utext="${entry.nombre}" />
+		</select>  
+		<label for="palabraClave">Palabras Clave</label>
+    <input type="text" th:field="*{palabraClave}" id="palabraClave">
+    
+     <input type="submit" value="Guardar Workshop">   
+</form>
+
+</body>
+</html>

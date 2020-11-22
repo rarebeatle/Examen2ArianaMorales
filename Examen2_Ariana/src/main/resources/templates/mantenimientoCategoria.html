@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Crear nueva Categoria</title>
+</head>
+<body>
+Insertar:
+<form action="#" th:action="@{/mantenimientoCategoria}" th:object="${categoria}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    <br/>
+	     <input type="submit" value="Crear Categoria">   
+	     <body>
+	 <div>
+		<h1>Lista de Categorias</h1>
+		<ul>
+			<div th:each="entry : ${categorias}">
+				<li>
+					<h4>
+						<span th:text="${entry.id}">Id</span>
+						<span th:text="${entry.nombre}">Nombre</span>
+						
+						  
+						<a th:href="@{/editarCategoria/{id}(id=${entry.id})}">Edit</a><br /> 
+						<a th:href="@{/deleteCategoria/{id}(id=${entry.id})}">Delete</a><br /> 
+						
+						 						
+												
+					</h4>
+				</li>
+			</div>
+		</ul>
+	</div>
+	  </body>   
+</form>
+
+</body>
+</html>
