@@ -10,24 +10,24 @@
 		<h1>Lista de Workshops General</h1>
 		<ul>
 			<div th:each="entry : ${workshops}">
-				<li>
+				<li><input type="text" id="myInput" onkeyup="myFunction()"
+					placeholder="">
 					<h4>
-						<span th:text="${entry.id}">Id</span>
-						<span th:text="${entry.nombre}">Nombre</span>
-						 <span th:text="${entry.autor}">Autor</span> 
-						 <span th:text="${entry.objetivo}">Objetivo</span>
-						 <span th:text="${entry.categoria}">Categoria</span>
-						 <span th:text="${entry.palabraClave}">Palabras Clave</span>
-						  
-						<a th:href="@{/editarWorkshop/{id}(id=${entry.id})}">Edit</a><br /> 
-						
-						<a th:href="@{/detalle/{id}(id=${entry.id})}">Detalle</a><br /> <br/>
-						
-						<a th:href="@{/generarDoc/{id}(id=${entry.id})}">Generar Doc</a><br /> <br/>
- 						
-												
-					</h4>
-				</li>
+						<span th:text="${entry.id}">Id</span> <span
+							th:text="${entry.nombre}">Nombre</span> <span
+							th:text="${entry.autor}">Autor</span> <span
+							th:text="${entry.objetivo}">Objetivo</span> <span
+							th:text="${entry.categoria}">Categoria</span> <span
+							th:text="${entry.palabraClave}">Palabras Clave</span> <a
+							th:href="@{/editarWorkshop/{id}(id=${entry.id})}">Edit</a><br />
+
+						<a th:href="@{/detalle/{id}(id=${entry.id})}">Detalle</a><br /> <br />
+
+						<a th:href="@{/generarDoc/{id}(id=${entry.id})}">Generar Doc</a><br />
+						<br />
+
+
+					</h4></li>
 			</div>
 		</ul>
 	</div>
