@@ -34,6 +34,11 @@ public class CategoriaServiceImpl implements CategoriaService{
 		return cateRepository.findAll();
 
 	}
+	
+	@Override
+	public Categoria getCategoriaByNombre (String pCategoria) {
+		return cateRepository.findAllByNombre (pCategoria);
+	}
 
 	
 }

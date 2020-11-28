@@ -12,6 +12,7 @@ public interface CategoriaService {
 	public void save(Categoria categoria);
 	public Optional<Categoria> get(Long id);
 	public List<Categoria> getAll();
+	public Categoria getCategoriaByNombre (String pCategoria);
 
 	
 }

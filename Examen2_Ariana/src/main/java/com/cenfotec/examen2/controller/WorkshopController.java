@@ -18,6 +18,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -93,6 +94,15 @@ public class WorkshopController {
 		model.addAttribute("categorias", categoriaService.getAll());
 		return "listarCategoria";
 	}
+
+	@RequestMapping(value = "/filtrar")
+	public String viewHomePage(Model model, @Param("categoria") String categoria) {
+		List<Workshop> listWorkshops = workshopService.listCategoria(categoria);
+		model.addAttribute("workshops", listWorkshops);
+
+		return "listarWorkshopCategoria";
+	}
+	
 
 	@RequestMapping("/listarWorkshopCategoria")
 	public String listarWorkshopCategoria(Model model) {

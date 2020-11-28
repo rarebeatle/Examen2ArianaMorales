@@ -8,6 +8,12 @@
 <body>
 	<div>
 		<h1>Lista de Workshops por Categoría</h1>
+		<br>
+		
+			<form th:action="@{/filtrar}">
+			 Filter: <input type="text" name="categoria" id="categoria" size="50" th:value="${categoria}" required />
+			<input type="submit" value="Search"/>
+			</form>
 		<ul>
 			<div th:each="entry : ${workshops}">
 				<li>

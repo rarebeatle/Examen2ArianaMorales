@@ -2,12 +2,16 @@ package com.cenfotec.examen2.domain;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Table (name = "WORKSHOP")
 
 @Entity
 public class Workshop {
@@ -18,16 +22,20 @@ public class Workshop {
 	
 	private String nombre;
 	
+	@Column(name="autor")
 	private String autor;
 	
 	private String objetivo;
 	
+	@Column(name="categoria")
 	private String categoria;
 	
+	@Column(name="palabraClave")
 	private String palabraClave;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="workshop")
 	private Set<Actividad> actividades;
+
 
 	public long getId() {
 		return id;
